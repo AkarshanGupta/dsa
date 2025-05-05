@@ -1,16 +1,16 @@
 #include <iostream>
-
 using namespace std;
 
-int power(int x, int n){
-    int result = 1;
-    for(int i = 0; i < n;i++){
-        result *= x;
-    }
-    return result;
+int power(int base, int exponent) {
+    if (exponent == 0)
+        return 1;
+    return base * power(base, exponent - 1);
 }
-int main(){
-    int x = 2 ,n = 5;
-    cout << x << " raised to power " << n << " is " << power(x, n) << endl;
+
+int main() {
+    int a, b;
+    cout << "Enter base and exponent: ";
+    cin >> a >> b;
+    cout << "Power: " << power(a, b) << endl;
     return 0;
 }

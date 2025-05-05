@@ -1,18 +1,20 @@
 #include <iostream>
-
 using namespace std;
 
-int sumArr(int arr[],int size){
-    int sum = 0;
-    for(int i = 0; i < size;++i){
-        sum += arr[i];
-    }
-    return sum;
+int sumArray(int arr[], int n) {
+    if (n == 0)
+        return 0;
+    return arr[n - 1] + sumArray(arr, n - 1);
 }
 
 int main() {
-    int arr[] = {1,2,3,4,5,6};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    cout << "Sum of arrays: " << sumArr(arr,size) << endl;
+    int n;
+    cout << "Enter array size: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter array elements:\n";
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    cout << "Sum: " << sumArray(arr, n) << endl;
     return 0;
 }

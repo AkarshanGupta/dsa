@@ -1,21 +1,16 @@
 #include <iostream>
-
 using namespace std;
 
-void fibo(int terms){
-    int a = 0, b = 1;
-    cout << "Fibo Series";
-    for(int i =0;i < terms;i++){
-        cout << a << "";
-        int next = a + b;
-        a = b;
-        b = next;
-
-    }
-    cout << endl;
+int fibonacci(int n) {
+    if (n <= 1)
+        return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
+
 int main() {
-    int terms = 10;
-    fibo(terms);
+    int n;
+    cout << "Enter position: ";
+    cin >> n;
+    cout << "Fibonacci number: " << fibonacci(n) << endl;
     return 0;
 }
