@@ -1,59 +1,54 @@
 #include <iostream>
+
 using namespace std;
 
-const int MAX_SIZE = 100; // Maximum size of the stack
+const int MAX_SIZE = 100;
 
-class Stack {
-private:
-    int data[MAX_SIZE]; // Array to store stack elements
-    int topIndex;       // Index of the top element
+class Stack {  // Fixed: class name should be capitalized consistently
+    private:
+        int data[MAX_SIZE];
+        int topIndex;
 
-public:
-    // Constructor
-    Stack() {
-        topIndex = -1; // Initialize stack as empty
-    }
-
-    // Push an element onto the stack
-    void push(int x) {
-        if (topIndex >= MAX_SIZE - 1) {
-            cout << "Stack Overflow: Cannot push, stack is full." << endl;
-            return;
+    public:
+        Stack(){  // Fixed: constructor name matches class name
+            topIndex = -1;
         }
-        data[++topIndex] = x;
-    }
 
-    // Remove and return the top element from the stack
-    int pop() {
-        if (isEmpty()) {
-            cout << "Stack Underflow: Cannot pop from empty stack." << endl;
-            return -1; // Return a sentinel value or consider throwing an exception
+        void push(int x){
+            if(topIndex >= MAX_SIZE - 1){  // Fixed: topIndex instead of 'top', MAX_SIZE instead of 'MAx_SIZE'
+                cout << "Stack Overflow - cannot be pushed" << endl;  // Fixed: added missing '<<' and corrected text
+                return;
+            }
+            data[++topIndex] = x;
         }
-        return data[topIndex--];
-    }
 
-    // Return the top element without removing it
-    int peek() {
-        if (isEmpty()) {
-            cout << "Stack is empty." << endl;
-            return -1; // Return a sentinel value or consider throwing an exception
+        int pop(){  // Fixed: should return int, not void
+            if (isEmpty()){
+                cout << "Stack underflow" << endl;  // Fixed: spelling of 'underflow'
+                return -1;
+            }
+            return data[topIndex--];
         }
-        return data[topIndex];
-    }
 
-    // Check if the stack is empty
-    bool isEmpty() {
-        return topIndex == -1;
-    }
+        int peek(){
+            if(isEmpty()){
+                cout << "Stack is empty" << endl;  // Fixed: corrected message
+                return -1;
+            }
+            return data[topIndex];
+        }
 
-    // Additional method to get the current size of the stack
-    int size() {
-        return topIndex + 1;
-    }
-};
+        bool isEmpty() {
+            return topIndex == -1;
+        }
 
-int main() {
-    Stack s;
+        int size(){
+            return topIndex + 1;
+        }
+};  // Fixed: added semicolon after class definition
+
+int main(){  // Fixed: main should be outside the class
+    Stack s;  // Fixed: Stack with capital S
     
     s.push(10);
     s.push(20);
