@@ -5,7 +5,7 @@ using namespace std;
 const int MAX_SIZE = 100;
 
 class Stack {  // Fixed: class name should be capitalized consistently
-    private:
+    private:   
         int data[MAX_SIZE];
         int topIndex;
 
